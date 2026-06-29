@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --white-val: #FFFFFF;
+  --background-val: #FAF9F5;
+  --on-surface-val: #1E2022;
+  --on-surface-variant-val: #4E5154;
+  --surface-container-val: #FFFFFF;
+  --surface-container-low-val: #F4F3F0;
+  --surface-container-high-val: #FAF9F5;
+  --surface-container-highest-val: #EBEAE6;
+  --surface-container-lowest-val: #FFFFFF;
+  --outline-variant-val: #E5E4DF;
+  --body-bg-val: #FAF9F5;
+  --body-color-val: #1E2022;
+
+  /* Dynamic Accent Theme variables (defaults to Orange) */
+  --accent-color-val: #F59E0B;
+  --accent-hover-val: #D97706;
+  --accent-active-val: #B45309;
+  --accent-soft-bg-val: rgba(245, 158, 11, 0.12);
+  --accent-border-val: rgba(245, 158, 11, 0.25);
+}
+
+.dark {
+  --white-val: #FFFFFF;
+  --background-val: #131315;
+  --on-surface-val: #e4e2e3;
+  --on-surface-variant-val: #c5c6cd;
+  --surface-container-val: #1f1f21;
+  --surface-container-low-val: #1b1b1d;
+  --surface-container-high-val: #2a2a2b;
+  --surface-container-highest-val: #353536;
+  --surface-container-lowest-val: #0e0e0f;
+  --outline-variant-val: #45474c;
+  --body-bg-val: radial-gradient(circle at center, #1b1b1d 0%, #131315 100%);
+  --body-color-val: #e4e2e3;
+
+  /* Dynamic Accent Theme variables for Dark Mode */
+  --accent-color-val: #F59E0B;
+  --accent-hover-val: #FBBF24;
+  --accent-active-val: #F59E0B;
+  --accent-soft-bg-val: rgba(245, 158, 11, 0.15);
+  --accent-border-val: rgba(245, 158, 11, 0.3);
+}
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+
+  /* Theme adjustments */
+  --color-white: var(--white-val);
+  --color-primary-container: #1e293b;
+  --color-border-dark: #1F2937;
+  --color-text-primary-dark: #F9FAFB;
+  --color-surface-bright: #39393a;
+  --color-on-tertiary-fixed: #271902;
+  --color-on-secondary-fixed: #2a1700;
+  --color-inverse-on-surface: #303032;
+  --color-on-secondary-fixed-variant: #653e00;
+  --color-on-error: #690005;
+  --color-on-secondary: #472a00;
+  --color-on-surface: var(--on-surface-val);
+  --color-on-surface-variant: var(--on-surface-variant-val);
+  --color-tertiary-container: #35260c;
+  --color-surface-dim: #131315;
+  --color-primary: #bcc7de;
+  --color-on-primary-container: #8590a6;
+  --color-secondary-fixed-dim: #ffb95f;
+  --color-surface-container-lowest: var(--surface-container-lowest-val);
+  --color-on-error-container: #ffdad6;
+  --color-surface-variant: #353536;
+  --color-on-secondary-container: #5b3800;
+  --color-surface-container-low: var(--surface-container-low-val);
+  --color-surface-tint: #bcc7de;
+  --color-info: #06B6D4;
+  --color-surface-container-highest: var(--surface-container-highest-val);
+  --color-error-container: #93000a;
+  --color-on-primary-fixed-variant: #3c475a;
+  --color-inverse-primary: #545f73;
+  --color-outline: #8f9097;
+  --color-tertiary-fixed-dim: #ddc39d;
+  --color-surface-dark: #111827;
+  --color-on-primary-fixed: #111c2d;
+  --color-surface: var(--surface-container-val);
+  --color-on-tertiary-fixed-variant: #564427;
+  --color-bg-dark: #0B1020;
+  --color-text-secondary-light: #6B7280;
+  --color-text-primary-light: #111827;
+  --color-surface-container-high: var(--surface-container-high-val);
+  --color-secondary-container: #ee9800;
+  --color-error: #ffb4ab;
+  --color-background: var(--background-val);
+  --color-bg-light: #F8FAFC;
+  --color-danger: #EF4444;
+  --color-on-tertiary: #3e2e13;
+  --color-warning: #F97316;
+  --color-secondary-fixed: #ffddb8;
+  --color-on-background: var(--on-surface-val);
+  --color-text-secondary-dark: #9CA3AF;
+  --color-primary-fixed-dim: #bcc7de;
+  --color-tertiary: #ddc39d;
+  --color-on-tertiary-container: #a38c6a;
+  --color-inverse-surface: var(--on-surface-val);
+  --color-primary-fixed: #d8e3fb;
+  --color-secondary: #ffb95f;
+  --color-tertiary-fixed: #fadfb8;
+  --color-success: #10B981;
+  --color-outline-variant: var(--outline-variant-val);
+  --color-border-light: #E5E7EB;
+  --color-surface-light: #FFFFFF;
+  --color-surface-container: var(--surface-container-val);
+  --color-on-primary: #263143;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--body-bg-val);
+  color: var(--body-color-val);
+}
+
+.squircle {
+  border-radius: 18px;
+}
+
+/* Shimmer animation keyframes for loader */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.bg-pure-white {
+  background-color: #FFFFFF !important;
+}
+
+.text-pure-white {
+  color: #FFFFFF !important;
+}
+
+.border-pure-white {
+  border-color: #FFFFFF !important;
+}
+
+/* Custom smooth cursor blinking */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-cursor-blink {
+  animation: cursorBlink 0.8s step-end infinite;
+}
+
+/* Ambient glow subtle pulsing */
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.12; }
+  50% { transform: scale(1.1) translate(15px, -15px); opacity: 0.18; }
+}
+.animate-glow-pulse {
+  animation: glowPulse 20s ease-in-out infinite;
+}
+
+/* Ambient particles float */
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  25% { opacity: 0.4; }
+  75% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
+.animate-particle-1 {
+  animation: particleFloat 32s linear infinite;
+}
+.animate-particle-2 {
+  animation: particleFloat 25s linear infinite;
+  animation-delay: -8s;
+}
+.animate-particle-3 {
+  animation: particleFloat 38s linear infinite;
+  animation-delay: -16s;
+}
+.animate-particle-4 {
+  animation: particleFloat 45s linear infinite;
+  animation-delay: -24s;
+}
+
+/* Map existing hardcoded orange classes to our dynamic accent variables */
+.text-\[\#F59E0B\] {
+  color: var(--accent-color-val) !important;
+}
+.bg-\[\#F59E0B\] {
+  background-color: var(--accent-color-val) !important;
+}
+.border-\[\#F59E0B\] {
+  border-color: var(--accent-color-val) !important;
+}
+.hover\:text-\[\#F59E0B\]:hover {
+  color: var(--accent-hover-val) !important;
+}
+.hover\:bg-\[\#F59E0B\]:hover {
+  background-color: var(--accent-hover-val) !important;
+}
+.focus\:border-\[\#F59E0B\]:focus {
+  border-color: var(--accent-color-val) !important;
+}
+.bg-\[\#F59E0B\]\/10 {
+  background-color: var(--accent-soft-bg-val) !important;
+}
+.bg-\[\#F59E0B\]\/20 {
+  background-color: var(--accent-soft-bg-val) !important;
+}
+.bg-\[\#F59E0B\]\/20.text-\[\#F59E0B\] {
+  background-color: var(--accent-soft-bg-val) !important;
+  color: var(--accent-color-val) !important;
+}
+.text-\[\#F59E0B\]\/80 {
+  color: var(--accent-color-val) !important;
+  opacity: 0.8 !important;
+}
+.border-\[\#F59E0B\]\/20 {
+  border-color: var(--accent-border-val) !important;
+}
+.border-\[\#F59E0B\]\/30 {
+  border-color: var(--accent-border-val) !important;
+}
+.border-\[\#F59E0B\]\/40 {
+  border-color: var(--accent-border-val) !important;
+}
+.from-\[\#F59E0B\]\/20 {
+  --tw-gradient-from: var(--accent-soft-bg-val) !important;
+}
+.to-\[\#F59E0B\]\/20 {
+  --tw-gradient-to: var(--accent-soft-bg-val) !important;
+}
+.accent-\[\#F59E0B\] {
+  accent-color: var(--accent-color-val) !important;
+}
+
+/* Light Mode Settings Panel & Content Theme Adjustments */
+.light .bg-\[\#1e1f22\],
+.light .bg-\[\#1e1f22\]\/50 {
+  background-color: var(--surface-container-low-val) !important;
+}
+.light .border-\[\#2b2d31\],
+.light .border-r-\[\#2b2d31\] {
+  border-color: var(--outline-variant-val) !important;
+}
+.light .bg-\[\#2b2d31\] {
+  background-color: var(--surface-container-val) !important;
+}
+.light .hover\:bg-\[\#2b2d31\]:hover {
+  background-color: var(--surface-container-low-val) !important;
+}
+
+/* Text adaptations in Light Mode settings */
+.light .text-white {
+  color: var(--on-surface-val) !important;
+}
+.light .text-white.font-display,
+.light .text-white.font-sans,
+.light .text-white.font-mono {
+  color: var(--on-surface-val) !important;
+}
+
+/* Ensure text on filled brand buttons/badges inside settings remains white! */
+.light .bg-\[\#F59E0B\] .text-white,
+.light .bg-[#F59E0B] .text-white,
+.light button.bg-\[\#F59E0B\],
+.light .bg-accent .text-white,
+.light .bg-brand .text-white {
+  color: #FFFFFF !important;
+}
+
+
+

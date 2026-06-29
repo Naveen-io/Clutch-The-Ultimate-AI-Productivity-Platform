@@ -1,0 +1,6 @@
+{
+  "name": "Clutch",
+  "description": "Your intelligent AI Deadline Rescue Agent that helps you recover from procrastination by breaking overwhelming tasks into bite-sized actionable milestones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with onboarding completion state",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "onboardingCompleted": { "type": "boolean" }
+      },
+      "required": ["uid", "email", "onboardingCompleted"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "Project tracked by Clutch with current risk projection metrics",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "deadline": { "type": "string" },
+        "progress": { "type": "integer" },
+        "riskLevel": { "type": "string", "enum": ["SAFE", "AT RISK", "CRITICAL"] },
+        "status": { "type": "string", "enum": ["ACTIVE", "COMPLETED", "ARCHIVED"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "progress", "riskLevel", "status"]
+    },
+    "Note": {
+      "title": "Note",
+      "description": "Auto-saving contextual workspace notes linked to projects",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "projectId", "content"]
+    },
+    "CalendarEvent": {
+      "title": "CalendarEvent",
+      "description": "Time-blocked calendar entries linked to focus tasks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "title": { "type": "string" },
+        "startTime": { "type": "string", "format": "date-time" },
+        "endTime": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "projectId", "title", "startTime", "endTime"]
+    },
+    "SmartPlan": {
+      "title": "SmartPlan",
+      "description": "AI-generated strategy and milestones for project rescue",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "generatedPlan": { "type": "object" },
+        "generatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "projectId", "generatedPlan", "generatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    },
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Collection of tracked project tasks"
+    },
+    "/notes/{noteId}": {
+      "schema": "Note",
+      "description": "Collection of auto-saving notes"
+    },
+    "/calendarEvents/{eventId}": {
+      "schema": "CalendarEvent",
+      "description": "Collection of calendar schedule events"
+    },
+    "/smartPlans/{planId}": {
+      "schema": "SmartPlan",
+      "description": "Collection of generated smart plans"
+    }
+  }
+}
